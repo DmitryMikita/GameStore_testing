@@ -39,10 +39,11 @@ public class GameStoreTest {
 
     @Test
     //
-    public void shouldAddPlayerTime() {
+    public void shouldAddPlayerTimeOneHours() {
 
         GameStore store = new GameStore();
         store.addPlayTime("Ivan", 1);
+        store.addPlayTime("Fill", 0);
 
         String actual = store.getMostPlayer();
         String expected = "Ivan";
@@ -102,6 +103,20 @@ public class GameStoreTest {
         store.addPlayTime("John", 5);
         String actual = store.getMostPlayer();
         String expected = "Fill";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    //если у всех игроков время равно 0, то метод должен возвращать пустое значение
+    public void shouldMostPlayerNullTime() {
+
+        GameStore store = new GameStore();
+        store.addPlayTime("Fill", 0);
+        store.addPlayTime("Ivan", 0);
+        store.addPlayTime("John", 0);
+        String actual = store.getMostPlayer();
+        String expected = null;
 
         assertEquals(expected, actual);
     }
