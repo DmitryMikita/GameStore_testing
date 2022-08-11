@@ -21,6 +21,9 @@ public class GameStore {
      */
     public Game publishGame(String title, String genre) {
         Game game = new Game(title, genre, this);
+        if(games.contains(game)) {
+            throw new RuntimeException("Игра" + title + "уже добавлена");
+        }
         games.add(game);
         return game;
     }
@@ -30,8 +33,8 @@ public class GameStore {
      * если игра есть и false иначе
      */
     public boolean containsGame(Game game) {
-        for (int i = 1; i < games.size(); i++) {
-            if (games.get(i - 1).equals(game)) {
+        for (int i = 0; i < games.size(); i++) {
+            if (games.get(i).equals(game)) {
                 return true;
             }
         }
