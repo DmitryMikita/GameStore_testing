@@ -15,15 +15,19 @@ public class GameStore {
      */
     private Map<String, Integer> playedTime = new HashMap<>();
 
+    public List<Game> getGames() {
+        return games;
+    }
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }
+
     /**
      * Создание объекта игры с заданными заголовком и жанром
      * Каждый объект игры помнит объект каталога, которому она принадлежит
      */
     public Game publishGame(String title, String genre) {
         Game game = new Game(title, genre, this);
-        if(games.contains(game)) {
-            throw new RuntimeException("Игра" + title + "уже добавлена");
-        }
         games.add(game);
         return game;
     }

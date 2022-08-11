@@ -16,25 +16,26 @@ public class GameStoreTest {
     }
 
     @Test
-    //Не должна создаваться игра с уже существующими заголовком и жанром
+    //Не должна создаваться игра  уже существующая в списке игра
+
     public void shouldAddExistingGame() {
 
         GameStore store = new GameStore();
-        Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-        Game game2 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+       // Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        Game game2 = new Game("Нетология Баттл Онлайн", "Аркады", store);
 
         assertFalse(store.containsGame(game2));
     }
 
     @Test
-    // не должны добавляться в каталог игры без названия и жанра
-    public void shouldAddNotTitleGame() {
+    // не должны добавляться в каталог не установленную игру
+    public void shouldNotAddNotGame() {
 
         GameStore store = new GameStore();
-        Game game = store.publishGame(null, null);
+        Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        Game game2 = new Game("Warcraft 3", "Hgu", store);
 
-
-        assertFalse(store.containsGame(game));
+        assertFalse(store.containsGame(game2));
     }
 
     @Test
