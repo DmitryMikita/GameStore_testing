@@ -21,7 +21,7 @@ public class GameStoreTest {
     public void shouldAddExistingGame() {
 
         GameStore store = new GameStore();
-       // Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+        // Game game1 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Game game2 = new Game("Нетология Баттл Онлайн", "Аркады", store);
 
         assertFalse(store.containsGame(game2));
@@ -51,6 +51,7 @@ public class GameStoreTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     //общее время игрока не может быть отрицательным
     public void shouldAddNegativeTime() {
