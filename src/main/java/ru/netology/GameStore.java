@@ -15,12 +15,7 @@ public class GameStore {
      */
     private Map<String, Integer> playedTime = new HashMap<>();
 
-    public List<Game> getGames() {
-        return games;
-    }
-    public void setGames(List<Game> games) {
-        this.games = games;
-    }
+
 
     /**
      * Создание объекта игры с заданными заголовком и жанром

@@ -79,7 +79,7 @@ public class GameStoreTest {
     }
 
     @Test
-    //должен показываться игрок с наибольшим временeм в игре
+    //должен показываться игрока с наибольшим временeм в игре
     public void shouldMostPlayer() {
 
         GameStore store = new GameStore();
