@@ -109,7 +109,7 @@ public class PlayerTest {
         Player player = new Player("Petya");
         player.installGame(game);
 
-        assertThrows(Exception.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             player.play(game, -1);
         });
 
