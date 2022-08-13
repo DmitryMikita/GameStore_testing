@@ -102,16 +102,16 @@ public class PlayerTest {
     }
 
     @Test
-    //не должен задавать отрицательное время
+    //должен выдать сообщение о неустановленной игре если гра не установлена
     public void shouldNotSetNegativeHours() {
         GameStore store = new GameStore();
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
 
         Player player = new Player("Petya");
-        player.installGame(game);
+
 
         assertThrows(RuntimeException.class, () -> {
-            player.play(game, -1);
+            player.play(game, 1);
         });
 
     }
